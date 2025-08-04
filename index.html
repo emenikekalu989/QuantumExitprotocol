@@ -1,91 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuantumExit Protocol</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Orbitron', sans-serif;
-            background: #0f0f0f;
-            color: #f5f5f5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: start;
-            height: 100vh;
-            padding: 20px;
-        }
-        header {
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.5em;
-            color: #00ffcc;
-        }
-        .button {
-            padding: 15px 25px;
-            font-size: 1em;
-            margin: 10px;
-            color: #fff;
-            background-color: #1a1a1a;
-            border: 2px solid #00ffcc;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .button:hover {
-            background-color: #00ffcc;
-            color: #0f0f0f;
-        }
-        .section {
-            margin-top: 30px;
-            max-width: 600px;
-            text-align: center;
-        }
-        footer {
-            margin-top: auto;
-            padding: 10px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #888;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>QuantumExit Protocol | QFS Bridge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="QuantumExit Protocol is a next-gen financial bridge to the Quantum Financial System. Secure, scalable, and ready for the future.">
+  <link rel="icon" href="https://quantum-exit.pages.dev/logo.png" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0d0d0d;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    header {
+      padding: 2rem;
+      background: #1a1a1a;
+      border-bottom: 2px solid #333;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #00fff7;
+    }
+
+    .button {
+      padding: 1rem 2rem;
+      margin: 1rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 5px;
+      background: #00fff7;
+      color: #000;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #00cccc;
+    }
+
+    section {
+      padding: 3rem 2rem;
+    }
+
+    footer {
+      padding: 1.5rem;
+      background: #1a1a1a;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #00fff7;
+      text-decoration: none;
+    }
+
+    .card {
+      background: #1f1f1f;
+      padding: 2rem;
+      margin: 2rem auto;
+      border-radius: 10px;
+      max-width: 700px;
+      box-shadow: 0 0 20px rgba(0, 255, 247, 0.2);
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>QuantumExit Protocol</h1>
-        <p>Next-Gen Asset Exit System | Powered by QFS</p>
-    </header>
-    <button class="button" onclick="connectWallet()">🔗 Connect Wallet</button>
-    <button class="button" onclick="alert('Live Support coming soon!')">💬 Live Support</button>
-    <button class="button" onclick="alert('Protocol Info: QuantumExit enables secure, trace-free exits from legacy and digital asset systems. Built for the future.')">ℹ️ View Info</button>
-    
-    <div class="section">
-        <h2>🚀 Protocol Highlights</h2>
-        <p>🔐 Secure Transactions | 🌐 Cross-Chain Exit Tech | ⚡ Instant Validation</p>
-    </div>
+  <header>
+    <h1>QuantumExit Protocol</h1>
+    <p>Gateway to the Quantum Financial System (QFS)</p>
+  </header>
 
-    <footer>
-        &copy; 2025 QuantumExit Finance. All rights reserved.
-    </footer>
+  <section class="card">
+    <h2>🔗 Connect Wallet</h2>
+    <p>Securely connect your wallet to begin your journey.</p>
+    <button class="button" onclick="simulateConnect()">Connect Wallet</button>
+    <p id="wallet-status"></p>
+  </section>
 
-    <script>
-        async function connectWallet() {
-            if (window.ethereum) {
-                try {
-                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    alert('Connected: ' + accounts[0]);
-                } catch (error) {
-                    alert('Connection Error: ' + error.message);
-                }
-            } else {
-                alert('MetaMask not detected!');
-            }
-        }
-    </script>
+  <section class="card">
+    <h2>📄 View Whitepaper</h2>
+    <p>Understand the full vision of QuantumExit Protocol.</p>
+    <a class="button" href="https://quantum-exit.pages.dev/whitepaper.pdf" target="_blank">Download Whitepaper</a>
+  </section>
+
+  <section class="card">
+    <h2>🧬 On-chain Proof</h2>
+    <p>View our live contract proof via blockchain explorer.</p>
+    <a class="button" href="https://etherscan.io/address/0x0000000000000000000000000000000000000000" target="_blank">View on Etherscan</a>
+  </section>
+
+  <section class="card">
+    <h2>💬 Live Support</h2>
+    <p>Talk to our team instantly via chat.</p>
+    <a class="button" href="#">Start Chat</a>
+  </section>
+
+  <footer>
+    &copy; 2025 QuantumExit Finance Protocol | Built for The Flames ⚡
+  </footer>
+
+  <script>
+    function simulateConnect() {
+      const status = document.getElementById("wallet-status");
+      const walletAddress = "0x" + Math.random().toString(16).substr(2, 8) + "..." + Math.random().toString(16).substr(2, 4);
+      status.innerText = "✅ Connected: " + walletAddress;
+    }
+  </script>
+
+  <!-- Live Chat via Tawk.to (optional) -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/000000000000000000000000/default';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
 </body>
 </html>
